@@ -5,6 +5,7 @@ import indexRoutes from "./routes/index.js";
 import pathsRoutes from "./routes/paths.js";
 import userRoutes from "./routes/users.js";
 import resourcesRoutes from "./routes/resources.js";
+import stepRoutes from "./routes/steps.js";
 
 /* Clear the console  */
 console.log("\x1Bc");
@@ -41,6 +42,7 @@ app.use("/", indexRoutes);
 app.use("/paths", pathsRoutes);
 app.use("/resources", resourcesRoutes);
 app.use("/users", userRoutes);
+app.use("/steps", stepRoutes);
 
 /* Error handler  */
 // catch 404 and forward to error handler

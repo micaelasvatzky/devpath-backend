@@ -14,10 +14,13 @@ const findAllResources = async (req, res) => {
 const findOneResource = async (req, res) => {
   const { id } = req.params;
   try {
-    const resource = await Resource.findOne({ _id: id });
-    return res.status(200).send({ message: "resource encontrado", resource });
+    const resource = await Resource.findById(id).populate("step");
+    if (!resource) return res.status(404).send({ message: "Recurso no encontrado" });
+
+    return res.status(200).send({ message: "Recurso encontrado", resource });
   } catch (error) {
-    return res.status(501).send({ message: "error al obtener los resources" });
+    console.error(error);
+    return res.status(500).send({ message: "Error al obtener el recurso", error });
   }
 };
 

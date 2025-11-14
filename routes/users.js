@@ -3,7 +3,7 @@ import User from "../models/User.js";
  
 const router = express.Router();
  
-// Crear usuario 
+
 router.post("/", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
   }
 });
  
-// Listar usuarios
+
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
