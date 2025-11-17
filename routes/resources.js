@@ -14,7 +14,7 @@ const findAllResources = async (req, res) => {
 const findOneResource = async (req, res) => {
   const { id } = req.params;
   try {
-    const resource = await Resource.findById(id).populate("step");
+    const resource = await Resource.findById(id)
     if (!resource) return res.status(404).send({ message: "Recurso no encontrado" });
 
     return res.status(200).send({ message: "Recurso encontrado", resource });

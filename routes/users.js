@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    const user = new User({ username, email, password });
+    const { username, email } = req.body;
+    const user = new User({ username, email });
     await user.save();
     return res.status(201).send({ message: "Usuario creado", user});
   } catch (error) {
